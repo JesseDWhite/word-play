@@ -1,22 +1,20 @@
-'use strict';
-
 $(document).ready(function () {
     $("form").submit(function (event) {
         event.preventDefault()
 
         const sentence = $("#form-entry").val()
         const words = sentence.split(" ")
+        console.log(words)
         const newSentence = words.filter(word => word.length > 3)
         console.log(newSentence)
         const reverseArray = newSentence.reverse()
         console.log(reverseArray)
-        const combineArray = newSentence.push(reverseArray)
-        // newSentence = words.forEach(function (word) {
-        //     newSentence.filter(word => word.length > 3)
-        // })
+        const combineArray = newSentence.concat(reverseArray)
+        console.log(combineArray)
+        const convertArray = combineArray.join(" ")
+        console.log(convertArray)
 
-        console.log(words)
-        console.log(sentence)
         $("#result").show()
+        $("#result-paragraph").text(convertArray)
     })
 })
